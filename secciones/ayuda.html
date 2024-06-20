@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>SH INDUMENTARIA</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <style>
+        .seccion-faq {
+            margin: 20px;
+        }
+
+        .preguntas-faq {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            margin-top: -1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s, background-color 0.3s;
+        }
+        .preguntas-faq:hover {
+            color: white;
+            background-color: #333;
+        }
+        .preguntas-faq::after {
+            content: '▼';
+            font-size: 12px;
+        }
+
+        .respuestas-faq {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navegacion">
+    <nav>
+        <ul>
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="ayuda.html">Ayuda</a></li>
+            <li><a href="#">Mi cuenta</a></li>
+            <li><a href="#">Carrito</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="seccion-faq">
+    <div class="faq">
+        <div class="preguntas-faq">¿Cómo puedo realizar un pedido?</div>
+        <div class="respuestas-faq">Para realizar un pedido, simplemente navegue por nuestros productos, agregue los que desee al carrito y proceda a la compra desde el carrito.</div>
+    </div>
+    <div class="faq">
+        <div class="preguntas-faq">¿Cuáles son los métodos de pago disponibles?</div>
+        <div class="respuestas-faq">Aceptamos varias formas de pago, incluyendo tarjetas de crédito y débito.</div>
+    </div>
+    <div class="faq">
+        <div class="preguntas-faq">¿Cuánto tarda en llegar mi pedido?</div>
+        <div class="respuestas-faq">El tiempo de entrega depende de su ubicación y del método de envío seleccionado. Generalmente, los pedidos llegan entre 3 a 7 días hábiles.</div>
+    </div>
+    <div class="faq">
+        <div class="preguntas-faq">Tengo un problema con mi pedido. ¿A dónde me comunico?</div>
+        <div class="respuestas-faq">Podes mandarnos un mensaje al mail leandroresler4@gmail.com, donde te vamos a responder lo más rápido posible.
+
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="left">
+        <ul>
+            <li>2024. Todos los derechos reservados</li>
+            <li>Argentina</li>
+            <li>leandroresler4@gmail.com</li>
+        </ul>
+    </div>
+    <div class="right">
+        <ul>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="#">Ayuda</a></li>
+        </ul>
+    </div>
+</footer> 
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var preguntasFaq = document.querySelectorAll(".preguntas-faq");
+        preguntasFaq.forEach(function(pregunta) {
+            pregunta.addEventListener("click", function() {
+                var respuesta = this.nextElementSibling;
+                if (respuesta.style.display === "block") {
+                    respuesta.style.display = "none";
+                } else {
+                    respuesta.style.display = "block";
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
