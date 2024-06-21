@@ -4,15 +4,26 @@
     <title>SH INDUMENTARIA</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <style>
+        .titulo-faq {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 27px;
+            color: #f1e5d9;
+            padding: 82px 0px 0px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .seccion-faq {
             margin: 20px;
         }
 
         .preguntas-faq {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 22px;
             cursor: pointer;
             padding: 10px;
-            background-color: #f1f1f1;
-            border: 1px solid #ddd;
+            color: #f1e5d9;
             margin-top: -1px;
             display: flex;
             justify-content: space-between;
@@ -20,8 +31,9 @@
             transition: color 0.3s, background-color 0.3s;
         }
         .preguntas-faq:hover {
-            color: white;
-            background-color: #333;
+            color: #252323;
+            background-color: #f1e5d9;
+            border-radius: 5px;
         }
         .preguntas-faq::after {
             content: '▼';
@@ -29,81 +41,117 @@
         }
 
         .respuestas-faq {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f1e5d9;
             display: none;
             padding: 10px;
-            border: 1px solid #ddd;
             border-top: none;
+        }
+
+        .linea {
+            border: none;
+            border-top: 1px #f1e5d9;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
 
-<div class="navegacion">
-    <nav>
-        <ul>
-            <li><a href="/index.html">Inicio</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="ayuda.html">Ayuda</a></li>
-            <li><a href="#">Mi cuenta</a></li>
-            <li><a href="#">Carrito</a></li>
-        </ul>
-    </nav>
-</div>
+    <header>
+        <div class="menu">
+            <div class="navegacion">
+                <nav>
+                    <ul>
+                        <div class="left">
+                            <li><a href="productos.html">Productos</a></li>
+                            <li><a href="nosotros.html">Nosotros</a></li>
+                            <li><a href="ayuda.html">Ayuda</a></li>
+                        </div>
+                        <div class="center">
+                            <div id="titulo">
+                                <h1><a href="/index.html">SH INDUMENTARIA</a></h1>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <li class="cuenta"><a href="micuenta.html"><img src="/iconos/micuenta.png" alt="Mi cuenta"></a></li>
+                            <li class="carrito"><a href="carrito.html"><img src="/iconos/carrito.png" alt="carrito"></a></li>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-<div class="seccion-faq">
-    <div class="faq">
-        <div class="preguntas-faq">¿Cómo puedo realizar un pedido?</div>
-        <div class="respuestas-faq">Para realizar un pedido, simplemente navegue por nuestros productos, agregue los que desee al carrito y proceda a la compra desde el carrito.</div>
+    <div class="titulo-faq">
+    <h2>Preguntas Frecuentes</h2>
     </div>
-    <div class="faq">
-        <div class="preguntas-faq">¿Cuáles son los métodos de pago disponibles?</div>
-        <div class="respuestas-faq">Aceptamos varias formas de pago, incluyendo tarjetas de crédito y débito.</div>
-    </div>
-    <div class="faq">
-        <div class="preguntas-faq">¿Cuánto tarda en llegar mi pedido?</div>
-        <div class="respuestas-faq">El tiempo de entrega depende de su ubicación y del método de envío seleccionado. Generalmente, los pedidos llegan entre 3 a 7 días hábiles.</div>
-    </div>
-    <div class="faq">
-        <div class="preguntas-faq">Tengo un problema con mi pedido. ¿A dónde me comunico?</div>
-        <div class="respuestas-faq">Podes mandarnos un mensaje al mail leandroresler4@gmail.com, donde te vamos a responder lo más rápido posible.
 
+    <div class="seccion-faq">
+        <div class="faq">
+            <div class="preguntas-faq">¿Cómo puedo realizar un pedido?</div>
+            <div class="respuestas-faq">Para realizar un pedido, simplemente navegue por nuestros productos, agregue los que desee al carrito y proceda a la compra desde el carrito.</div>
+            <br>
+        </div>
+        <div class="faq">
+            <div class="preguntas-faq">¿Cuáles son los métodos de pago disponibles?</div>
+            <div class="respuestas-faq">Aceptamos varias formas de pago, incluyendo tarjetas de crédito y débito.</div>
+            <br>
+        </div>
+        <div class="faq">
+            <div class="preguntas-faq">¿Cuánto tarda en llegar mi pedido?</div>
+            <div class="respuestas-faq">El tiempo de entrega depende de su ubicación y del método de envío seleccionado. Generalmente, los pedidos llegan entre 3 a 7 días hábiles.</div>
+            <br>
+        </div>
+        <div class="faq">
+            <div class="preguntas-faq">Tengo un problema con mi pedido. ¿A dónde me comunico?</div>
+            <div class="respuestas-faq">Podes mandarnos un mensaje al mail leandroresler4@gmail.com, donde te vamos a responder lo más rápido posible.</div>
+            <br>
+        </div>
+        <div class="faq">
+            <div class="preguntas-faq">¿Puedo cancelar mi compra?</div>
+            <div class="respuestas-faq">Sí, podes cancelar tu compra sin problema. Para hacerlo, comunicate a leandroresler4@gmail.com.</div>
+            <br>
         </div>
     </div>
-</div>
 
-<footer class="footer">
-    <div class="left">
-        <ul>
-            <li>2024. Todos los derechos reservados</li>
-            <li>Argentina</li>
-            <li>leandroresler4@gmail.com</li>
-        </ul>
-    </div>
-    <div class="right">
-        <ul>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Ayuda</a></li>
-        </ul>
-    </div>
-</footer> 
+    <footer class="footer">
+        <div class="footer-title">
+            <h3>SH INDUMENTARIA</h3>
+        </div>
+        <hr class="title-line">
+        <div class="footer-sections">
+            <div class="left">
+                <ul>
+                    <li>2024. Todos los derechos reservados</li>
+                    <li>Argentina</li>
+                    <li>leandroresler4@gmail.com</li>
+                </ul>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="ayuda.html">Ayuda</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var preguntasFaq = document.querySelectorAll(".preguntas-faq");
-        preguntasFaq.forEach(function(pregunta) {
-            pregunta.addEventListener("click", function() {
-                var respuesta = this.nextElementSibling;
-                if (respuesta.style.display === "block") {
-                    respuesta.style.display = "none";
-                } else {
-                    respuesta.style.display = "block";
-                }
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var preguntasFaq = document.querySelectorAll(".preguntas-faq");
+            preguntasFaq.forEach(function(pregunta) {
+                pregunta.addEventListener("click", function() {
+                    var respuesta = this.nextElementSibling;
+                    if (respuesta.style.display === "block") {
+                        respuesta.style.display = "none";
+                    } else {
+                        respuesta.style.display = "block";
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>
