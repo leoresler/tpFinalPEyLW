@@ -175,10 +175,9 @@ button#vaciar-carrito {
 
 .all-products {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 150px;
-  width: 100%;
+  justify-content: center;
 }
 
 
