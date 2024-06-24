@@ -180,3 +180,73 @@ button#vaciar-carrito {
   margin-top: 150px;
   width: 100%;
 }
+
+
+/* Seccion Mi Cuenta */
+
+.title-form {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  margin-top: 150px;
+  color: #f1e5d9;
+  text-align: center;
+}
+.title-form-left, .title-form-right {
+  display: block;
+  border-bottom: 1px solid #3d3d3c;
+  text-align: center;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formulario {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  color: #f1e5d9;
+}
+
+.formulario-left, .formulario-right {
+  border: 1px solid #3d3d3c;
+  margin: 0 10px;
+  flex: 1;
+}
+
+.formulario input {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 10px 10px;
+  padding: 10px;
+  background-color: #f1e5d905;
+  border-radius: 5px;
+  border: 1px solid #f1e5d9;
+  color: #f1e5d9;
+  transition: background-color 0.3s, border 0.3s;
+}
+.formulario label {
+  display: block;
+  margin: 20px 20px 5px 20px;
+}
+
+.aterisco {
+  color: red;
+}
+
+#button-form-left, #button-form-right {
+  margin: 20px 20px;
+  padding: 10px 20px;
+  background-color: #3d3d3c;
+  color: #f1e5d9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

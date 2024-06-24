@@ -1,12 +1,12 @@
-// funcion para preguntas de ayuda
+// funcion que muestra u oculta las preguntas de ayuda
 
 document.addEventListener("DOMContentLoaded", function () {
   var preguntasFaq = document.querySelectorAll(".preguntas-faq");
   preguntasFaq.forEach(function (pregunta) {
     pregunta.addEventListener("click", function () {
       var respuesta = this.nextElementSibling;
-      if (respuesta.style.display === "block") {
-        respuesta.style.display = "none";
+      if (respuesta.style.display === "block") { // visible
+        respuesta.style.display = "none"; // no visible
       } else {
         respuesta.style.display = "block";
       }
@@ -88,7 +88,7 @@ function actualizarTotalGeneral() {
     }
 
     // Actualizar el total general
-    totalGeneral.textContent = `$${total.toFixed(2)}`;
+    totalGeneral.textContent = `$${total}`;
 }
 
 // Función que actualiza el subtotal
@@ -97,7 +97,7 @@ function actualizarSubtotal(cantidad, precio, index) {
     let subtotal = document.getElementsByClassName('subtotal')[index];
 
     // Calcular el subtotal
-    subtotal.textContent = `$${(precio * cantidad).toFixed(2)}`;
+    subtotal.textContent = `$${(precio * cantidad)}`;
 
     // Actualizar el total general
     actualizarTotalGeneral();
@@ -105,7 +105,7 @@ function actualizarSubtotal(cantidad, precio, index) {
 
 function mostrarCarrito() {
     // Obtener el carrito desde localStorage
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // si existe un carrito, se obtiene de localStorage, sino se crea un array vacio
 
     // Obtener el elemento con el id 'carrito'
     let carritoDOM = document.getElementById('carrito');
@@ -131,13 +131,13 @@ function mostrarCarrito() {
             </tr>
         </thead>
         <tbody>
-             ${carrito.map((producto, index) => {
-                        let precioNumero = Number(producto.precio);
+             ${carrito.map((producto, index) => { // se itera con map sobre cada elemento del array "carrito" y ejecuta una funcion para cada elemento
+                        let precioNumero = Number(producto.precio); // se convierte el precio a NUMBER
                         totalProductos += precioNumero;
                         return `
                             <tr>
                                 <td>${producto.nombre}</td>
-                                <td>$${precioNumero.toFixed(2)}</td>
+                                <td>$${precioNumero}</td>
                                 <td>
                                     <input type="number" min="1" value="1" onchange="actualizarSubtotal(this.value, ${precioNumero}, ${index})" />
                                 </td>
@@ -148,7 +148,7 @@ function mostrarCarrito() {
                                         <option value="L">L</option>
                                     </select>
                                 </td>
-                                <td class="subtotal">$${precioNumero.toFixed(2)}</td>
+                                <td class="subtotal">$${precioNumero}</td>
                                 <td>
                                     <button onclick="eliminarDelCarrito(${index})">Eliminar</button>
                                 </td>
@@ -159,7 +159,7 @@ function mostrarCarrito() {
         <tfoot>
             <tr>
                 <td colspan="4">Total:</td>
-                <td id="total-general">$${totalProductos.toFixed(2)}</td>
+                <td id="total-general">$${totalProductos}</td>
                 <td></td>
             </tr>
         </tfoot>
@@ -167,6 +167,105 @@ function mostrarCarrito() {
         <button onclick="iniciarCompra()">Iniciar compra</button>
         <button onclick="vaciarCarrito()">Vaciar carrito</button>
         `;
+    } // map va a devolver un array de cadenas por cada producto y join las une sin ninguna separacion ('') para insertar la tabla en el body
+}
+
+
+
+// Funciones para el registro y el inicio de sesion
+
+function borderRed(elemento) {
+    elemento.style.border = '1px solid red';
+    elemento.style.backgroundColor = 'red';
+}
+
+function validarEmail(elemento){
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(elemento);
+}
+
+function validarSesion() {
+
+    var formLeft = document.getElementById("form-left")
+    var correo = formLeft.elements.correo;
+    var correoValue = correo.value;
+    var error = false;
+
+    // se resetean los estilos del borde y del fondo del input
+    correo.style.border = '';
+    correo.style.backgroundColor = '';
+
+    // Validamos el correo
+    if (correoValue === "") {
+        borderRed(correo);
+        error = true;
+    } else if (!validarEmail(correoValue)) {
+        borderRed(correo);
+        error = true;
+    }
+
+    // Si no hay errores
+    if (!error) {
+        alert("Inicio de sesión exitoso.");
+    } else {
+        alert("Datos invalidos.");
     }
 }
 
+
+function validarRegistro() {
+    var formRight = document.getElementById("form-right");
+    var nombre = formRight.elements.nombre;
+    var apellido = formRight.elements.apellido;
+    var telefono = formRight.elements.telefono;
+    var correo = formRight.elements.correo;
+    var error = false;
+
+    var nombreValue = nombre.value;
+    var apellidoValue = apellido.value;
+    var correoValue = correo.value;
+
+    // se resetean los estilos de todos los campos
+    nombre.style.border = '';
+    nombre.style.backgroundColor = '';
+    apellido.style.border = '';
+    apellido.style.backgroundColor = '';
+    telefono.style.border = '';
+    telefono.style.backgroundColor = '';
+    correo.style.border = '';
+    correo.style.backgroundColor = '';
+
+    // Validar nombre
+    if (nombreValue === "") {
+        borderRed(nombre);
+        error = true;
+    } else if (!/^[a-zA-Z\s]+$/.test(nombre.value)) { // que solo contenga letras y espacios
+        borderRed(nombre);
+        error = true;
+    }
+
+    // Validar apellido
+    if (apellidoValue === "") {
+        borderRed(apellido);
+        error = true;
+    } else if (!/^[a-zA-Z\s]+$/.test(apellido.value)) { // que solo contenga letras y espacios
+        borderRed(apellido);
+        error = true;
+    }
+
+    // Validar correo
+    if (correoValue === "") {
+        borderRed(correo);
+        error = true;
+    } else if (!validarEmail(correoValue)) {
+        borderRed(correo);
+        error = true;
+    }
+
+    // Si no hay errores
+    if (!error) {
+        alert("Registro exitoso.");
+    } else {
+        alert("Datos invalidos.");
+    }
+}

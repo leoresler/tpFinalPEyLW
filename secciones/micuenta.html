@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>SH INDUMENTARIA</title>
+        <link rel="stylesheet" type="text/css" href="/styles.css">
+        <link rel="stylesheet" type="text/css" href="/seccion-style.css">
+        <script src="/script.js"></script>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="menu">
+                <div class="navegacion">
+                    <nav>
+                        <ul>
+                            <div class="left">
+                                <li><a href="productos.html">Productos</a></li>
+                                <li><a href="nosotros.html">Nosotros</a></li>
+                                <li><a href="ayuda.html">Ayuda</a></li>
+                            </div>
+                            <div class="center">
+                                <div id="titulo">
+                                    <h1><a href="/index.html">SH INDUMENTARIA</a></h1>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <li class="cuenta"><a href="micuenta.html"><img src="/iconos/micuenta.png" alt="Mi cuenta"></a></li>
+                                <li class="carrito"><a href="carrito.html"><img src="/iconos/carrito.png" alt="carrito"></a></li>
+                            </div>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="title-form">
+            <h1>Mi Cuenta</h1>
+        </div>
+
+        <section class="formulario">
+            <div class="formulario-left">
+                <form id="form-left">
+                    <div class="title-form-left">
+                        <h3>Iniciar Sesión</h3>
+                    </div>
+
+                    <label>Correo Electrónico <span class="aterisco">*</span></label>
+                    <input type="text" name="correo" placeholder="Correo Electronico">
+    
+                    <button type="button" onclick="validarSesion()" id="button-form-left">Iniciar Sesion</button>
+
+                </form>
+            </div>
+
+            <div class="formulario-right">
+                <form id="form-right">
+                    <div class="title-form-right">
+                        <h3>Registrarse</h3>
+                    </div>
+
+                    <label>Nombre <span class="aterisco">*</span></label>
+                    <input type="text" name="nombre" placeholder="Nombre">
+
+                    <label>Apellido <span class="aterisco">*</span></label>
+                    <input type="text" name="apellido" placeholder="Apellido">
+    
+                    <label>Telefono</label>
+                    <input type="text" name="telefono" placeholder="Telefono">
+
+                    <label>Correo Electrónico <span class="aterisco">*</span></label>
+                    <input type="text" name="correo" placeholder="Correo Electronico">
+    
+                    <button type="button" onclick="validarRegistro()" id="button-form-right">Registrarse</button>
+
+                </form>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-title">
+                <h3>SH INDUMENTARIA</h3>
+            </div>
+            <hr class="title-line">
+            <div class="footer-sections">
+                <div class="left">
+                    <ul>
+                        <li>2024. Todos los derechos reservados</li>
+                        <li>Argentina</li>
+                        <li>leandroresler4@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="ayuda.html">Ayuda</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        
+    </body>
+</html>
