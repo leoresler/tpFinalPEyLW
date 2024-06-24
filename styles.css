@@ -60,7 +60,7 @@ header {
 /* Slider */
 .slider {
     width: 100%;
-    height: 400px;
+    height: 600px;
     overflow: hidden;
     position: relative;
     margin-top: 120px;
@@ -97,7 +97,7 @@ main {
 
 .titulo-destacado {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 27px;
+    font-size: 22px;
     color: #f1e5d9;
     display: flex;
     margin-left: 40px;
@@ -110,6 +110,7 @@ main {
 }
 
 .producto {
+    position: relative;
     background-color: #2a2a2a;
     border-radius: 10px;
     margin: 10px;
@@ -117,10 +118,12 @@ main {
     width: 20%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
+    margin-bottom: 50px;
 }
 .producto img {
     width: 100%;
     transition: transform 0.3s ease;
+    border-radius: 10px;
 }
 .producto:hover img {
     transform: scale(0.95); /*el tamaño de la imagen pasa a ser del 95% de su tamaño original*/
@@ -140,6 +143,33 @@ main {
     color: #f1e5d9;
 }
 
+.producto:hover .ver {
+    opacity: 1;
+}
+.ver {
+    position: absolute;
+    top: 98%;
+    left: 35px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.ver button {
+    font-size: 10px;
+    color: #f1e5d9;
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    border-radius: 10px;
+    padding: 4px 8px;
+    background-color: #202020d7;
+    cursor: pointer;
+    margin: 4px 2px;
+}
+.ver button:hover {
+    background-color: #d9b2a9;
+    transition: 0.2s ease;
+}
 
 
 

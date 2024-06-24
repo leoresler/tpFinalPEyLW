@@ -4,6 +4,7 @@
     <title>SH INDUMENTARIA</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <link rel="stylesheet" type="text/css" href="/seccion-style.css">
+    <script src="/script.js"></script>
 </head>
 <body>
     <header>
@@ -86,20 +87,5 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var preguntasFaq = document.querySelectorAll(".preguntas-faq");
-            preguntasFaq.forEach(function(pregunta) {
-                pregunta.addEventListener("click", function() {
-                    var respuesta = this.nextElementSibling;
-                    if (respuesta.style.display === "block") {
-                        respuesta.style.display = "none";
-                    } else {
-                        respuesta.style.display = "block";
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
