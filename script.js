@@ -91,7 +91,7 @@ function actualizarTotalGeneral() {
     totalGeneral.textContent = `$${total}`;
 }
 
-// Función que actualiza el subtotal
+//función que actualiza el subtotal
 function actualizarSubtotal(cantidad, precio, index) {
     // Obtener el subtotal
     let subtotal = document.getElementsByClassName('subtotal')[index];
@@ -103,6 +103,7 @@ function actualizarSubtotal(cantidad, precio, index) {
     actualizarTotalGeneral();
 }
 
+//funcion que escribe la tabla en el <div> con id "carrito"
 function mostrarCarrito() {
     // Obtener el carrito desde localStorage
     let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // si existe un carrito, se obtiene de localStorage, sino se crea un array vacio
@@ -167,14 +168,14 @@ function mostrarCarrito() {
         <button onclick="iniciarCompra()">Iniciar compra</button>
         <button onclick="vaciarCarrito()">Vaciar carrito</button>
         `;
-    } // map va a devolver un array de cadenas por cada producto y join las une sin ninguna separacion ('') para insertar la tabla en el body
+    }
 }
 
 
 
 // Funciones para el registro y el inicio de sesion
 
-function borderRed(elemento) {
+function errorRed(elemento) {
     elemento.style.border = '1px solid red';
     elemento.style.backgroundColor = 'red';
 }
@@ -197,10 +198,10 @@ function validarSesion() {
 
     // Validar el correo
     if (correoValue === "") {
-        borderRed(correo);
+        errorRed(correo);
         error = true;
     } else if (!validarEmail(correoValue)) {
-        borderRed(correo);
+        errorRed(correo);
         error = true;
     }
 
@@ -234,28 +235,28 @@ function validarRegistro() {
 
     // Validar nombre
     if (nombreValue === "") {
-        borderRed(nombre);
+        errorRed(nombre);
         error = true;
     } else if (!/^[a-zA-Z\s]+$/.test(nombreValue)) { // que solo contenga letras y espacios
-        borderRed(nombre);
+        errorRed(nombre);
         error = true;
     }
 
     // Validar apellido
     if (apellidoValue === "") {
-        borderRed(apellido);
+        errorRed(apellido);
         error = true;
     } else if (!/^[a-zA-Z\s]+$/.test(apellidoValue)) { // que solo contenga letras y espacios
-        borderRed(apellido);
+        errorRed(apellido);
         error = true;
     }
 
     // Validar correo
     if (correoValue === "") {
-        borderRed(correo);
+        errorRed(correo);
         error = true;
     } else if (!validarEmail(correoValue)) {
-        borderRed(correo);
+        errorRed(correo);
         error = true;
     }
 

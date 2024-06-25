@@ -9,13 +9,12 @@ body {
 /* HEADER */
 header {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1f1e1e;
+    background-color: #1c1c1c;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     margin-bottom: 100px;
 }
 
@@ -85,8 +84,8 @@ header {
 }
 
 @keyframes slide {
-    0% { transform: translateX(0%); } /* pocision inicial, primera imagen */
-    50% { transform: translateX(-25%); } /* pocision intermedia, cuando llega al 50% vuelve un -25% en el eje X, es decir, vuelve a la primera imagen */
+    0% {} /* pocision inicial de la primera imagen */
+    50% { transform: translateX(-25%); } /* pocision inicial de la segunda imagen */
 }
 
 
