@@ -195,7 +195,7 @@ function validarSesion() {
     correo.style.border = '';
     correo.style.backgroundColor = '';
 
-    // Validamos el correo
+    // Validar el correo
     if (correoValue === "") {
         borderRed(correo);
         error = true;
@@ -217,7 +217,6 @@ function validarRegistro() {
     var formRight = document.getElementById("form-right");
     var nombre = formRight.elements.nombre;
     var apellido = formRight.elements.apellido;
-    var telefono = formRight.elements.telefono;
     var correo = formRight.elements.correo;
     var error = false;
 
@@ -230,8 +229,6 @@ function validarRegistro() {
     nombre.style.backgroundColor = '';
     apellido.style.border = '';
     apellido.style.backgroundColor = '';
-    telefono.style.border = '';
-    telefono.style.backgroundColor = '';
     correo.style.border = '';
     correo.style.backgroundColor = '';
 
@@ -239,7 +236,7 @@ function validarRegistro() {
     if (nombreValue === "") {
         borderRed(nombre);
         error = true;
-    } else if (!/^[a-zA-Z\s]+$/.test(nombre.value)) { // que solo contenga letras y espacios
+    } else if (!/^[a-zA-Z\s]+$/.test(nombreValue)) { // que solo contenga letras y espacios
         borderRed(nombre);
         error = true;
     }
@@ -248,7 +245,7 @@ function validarRegistro() {
     if (apellidoValue === "") {
         borderRed(apellido);
         error = true;
-    } else if (!/^[a-zA-Z\s]+$/.test(apellido.value)) { // que solo contenga letras y espacios
+    } else if (!/^[a-zA-Z\s]+$/.test(apellidoValue)) { // que solo contenga letras y espacios
         borderRed(apellido);
         error = true;
     }
