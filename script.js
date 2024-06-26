@@ -116,7 +116,7 @@ function mostrarCarrito() {
     // Si el carrito está vacío
     if (carrito.length === 0) {
         // Mostrar un mensaje
-        carritoDOM.innerHTML = '<h1>El carrito está vacío.</h1>';
+        carritoDOM.innerHTML = '<h1>El carrito esta vacio.</h1>';
     } else {
         // Crea la tabla
         carritoDOM.innerHTML = `
