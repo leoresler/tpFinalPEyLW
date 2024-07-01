@@ -92,6 +92,7 @@
 }
 
 /* Seccion carrito */
+
 #carrito {
     margin-top: 160px;
     margin-bottom: 160px;
@@ -124,7 +125,7 @@ thead {
 
 input[type="number"] {
   width: 50px;
-  padding: 8px;
+  padding: 6px;
   box-sizing: border-box;
   border-radius: 5px;
   background-color: #f1e5d9;
@@ -134,22 +135,20 @@ input[type="number"] {
 select {
     border-radius: 5px;
     background-color: #f1e5d9;
+    width: 50px;
+    padding: 6px;
 }
 
 button {
-  background-color: #f1e5d9;
-  color: #1c1c1c;
   padding: 8px 12px;
+  background-color: #3d3d3c;
+  color: #f1e5d9;
   border: none;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-button:hover {
-  background-color: #d9b2a9;
-  transition: 0.3s;
-  color: #f1e5d9;
-}
+
 
 button#iniciar-compra,
 button#vaciar-carrito {
