@@ -1,20 +1,3 @@
-// funcion que muestra u oculta las preguntas de ayuda
-
-document.addEventListener("DOMContentLoaded", function () {
-  var preguntasFaq = document.querySelectorAll(".preguntas-faq");
-  preguntasFaq.forEach(function (pregunta) {
-    pregunta.addEventListener("click", function () {
-      var respuesta = this.nextElementSibling;
-      if (respuesta.style.display === "block") { // visible
-        respuesta.style.display = "none"; // no visible
-      } else {
-        respuesta.style.display = "block";
-      }
-    });
-  });
-});
-
-
 // funciones para el carrito
 
 //funcion que agrega un producto al carrito
