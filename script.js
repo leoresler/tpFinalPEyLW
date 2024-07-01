@@ -174,9 +174,8 @@ function validarSesion() {
     var correoValue = correo.value;
     var error = false;
 
-    // se resetean los estilos del borde y del fondo del input
+    // se resetean los estilos del borde del input
     correo.style.border = '';
-    correo.style.backgroundColor = '';
 
     // Validar el correo
     if (correoValue === "") {
@@ -209,11 +208,8 @@ function validarRegistro() {
 
     // se resetean los estilos de todos los campos
     nombre.style.border = '';
-    nombre.style.backgroundColor = '';
     apellido.style.border = '';
-    apellido.style.backgroundColor = '';
     correo.style.border = '';
-    correo.style.backgroundColor = '';
 
     // Validar nombre
     if (nombreValue === "") {
