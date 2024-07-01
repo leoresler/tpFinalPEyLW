@@ -158,9 +158,8 @@ function mostrarCarrito() {
 
 // Funciones para el registro y el inicio de sesion
 
-function errorRed(elemento) {
+function borderRed(elemento) {
     elemento.style.border = '1px solid red';
-    elemento.style.backgroundColor = 'red';
 }
 
 function validarEmail(elemento){
@@ -181,10 +180,10 @@ function validarSesion() {
 
     // Validar el correo
     if (correoValue === "") {
-        errorRed(correo);
+        borderRed(correo);
         error = true;
     } else if (!validarEmail(correoValue)) {
-        errorRed(correo);
+        borderRed(correo);
         error = true;
     }
 
@@ -218,28 +217,28 @@ function validarRegistro() {
 
     // Validar nombre
     if (nombreValue === "") {
-        errorRed(nombre);
+        borderRed(nombre);
         error = true;
     } else if (!/^[a-zA-Z\s]+$/.test(nombreValue)) { // que solo contenga letras y espacios
-        errorRed(nombre);
+        borderRed(nombre);
         error = true;
     }
 
     // Validar apellido
     if (apellidoValue === "") {
-        errorRed(apellido);
+        borderRed(apellido);
         error = true;
     } else if (!/^[a-zA-Z\s]+$/.test(apellidoValue)) { // que solo contenga letras y espacios
-        errorRed(apellido);
+        borderRed(apellido);
         error = true;
     }
 
     // Validar correo
     if (correoValue === "") {
-        errorRed(correo);
+        borderRed(correo);
         error = true;
     } else if (!validarEmail(correoValue)) {
-        errorRed(correo);
+        borderRed(correo);
         error = true;
     }
 
