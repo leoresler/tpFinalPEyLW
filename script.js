@@ -132,7 +132,7 @@ function eliminarDelCarrito(nombre) {
     let indice = carrito.findIndex(producto => producto.nombre === nombre); // findIndex retorna el índice del primer producto que coincida con el parametro nombre
 
     // Eliminar el producto
-    carrito.splice(indice, 1); // modifica el array original en la pocision indice eliminando un unico elemento
+    carrito.splice(indice, 1); // elimina un unico elemento en el indice indicado
 
     // Actualizar el carrito en localStorage
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -179,7 +179,7 @@ function actualizarTotalGeneral() {
     // Recorrer los subtotales
     for (let i = 0; i < subtotales.length; i++) {
         // Sumar el subtotal al total general
-        total += Number(subtotales[i].textContent);
+        total += Number(subtotales[i].textContent); // el valor de textContent de cada subtotal se convierte a numero y se suma al total
     }
 
     // Se actualiza el total general
@@ -190,13 +190,13 @@ function actualizarTotalGeneral() {
 //función que actualiza el subtotal
 function actualizarSubtotal(cantidad, precio, index) {
     // Obtener el subtotal
-    let subtotal = document.getElementsByClassName('subtotal')[index];
+    let subtotal = document.getElementsByClassName('subtotal')[index]; // index marca el elemento que se desea guardar
 
     // Calcular el subtotal
     subtotal.textContent = `${(precio * cantidad)}`;
 
     // Actualizar el total general
-    actualizarTotalGeneral();
+    actualizarTotalGeneral(); // se actualiza el total general con los nuevos valores de los subtotales
 }
 
 
