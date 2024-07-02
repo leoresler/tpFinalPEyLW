@@ -1,3 +1,111 @@
+// Funciones para el registro y el inicio de sesion
+
+function borderRed(elemento) {
+    elemento.style.border = '1px solid red';
+}
+
+function validarEmail(elemento){
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(elemento);
+}
+
+
+function validarSesion() {
+
+    var formLeft = document.getElementById("form-left")
+    var correo = formLeft.elements.correo;
+    var correoValue = correo.value;
+    var error = false;
+
+    // se resetean los estilos del borde del input
+    correo.style.border = '';
+
+    // Validar el correo
+    if (correoValue === "") {
+        borderRed(correo);
+        error = true;
+    } else if (!validarEmail(correoValue)) {
+        borderRed(correo);
+        error = true;
+    }
+
+    // Si no hay errores
+    if (!error) {
+        alert("Inicio de sesión exitoso.");
+    } else {
+        alert("Datos no validos.");
+    }
+}
+
+
+function validarRegistro() {
+    var formRight = document.getElementById("form-right");
+    var nombre = formRight.elements.nombre;
+    var apellido = formRight.elements.apellido;
+    var telefono = formRight.elements.telefono;
+    var correo = formRight.elements.correo;
+    var error = false;
+
+    var nombreValue = nombre.value;
+    var apellidoValue = apellido.value;
+    var telefonoValue = telefono.value;
+    var correoValue = correo.value;
+
+    // se resetean los estilos de todos los campos
+    nombre.style.border = '';
+    apellido.style.border = '';
+    telefono.style.border = '';
+    correo.style.border = '';
+
+    // Validar nombre
+    if (nombreValue === "") {
+        borderRed(nombre);
+        error = true;
+    } else if (!/^[a-zA-Z\s]+$/.test(nombreValue)) { // que solo contenga letras y espacios
+        borderRed(nombre);
+        error = true;
+    }
+
+    // Validar apellido
+    if (apellidoValue === "") {
+        borderRed(apellido);
+        error = true;
+    } else if (!/^[a-zA-Z\s]+$/.test(apellidoValue)) { // que solo contenga letras y espacios
+        borderRed(apellido);
+        error = true;
+    }
+
+    
+    // Verificar que el telefono solo contenga numeros pero que sea opcional ingresarlo
+    if (telefonoValue === "") {
+        error = false;
+    } else if (!/^\d+$/.test(telefonoValue)) { // si no contiene solo numeros
+        borderRed(telefono);
+        error = true;
+    }
+    
+
+    // Validar correo
+    if (correoValue === "") {
+        borderRed(correo);
+        error = true;
+    } else if (!validarEmail(correoValue)) {
+        borderRed(correo);
+        error = true;
+    }
+
+    // Si no hay errores
+    if (!error) {
+        alert("Registro exitoso.");
+    } else {
+        alert("Datos no validos.");
+    }
+}
+
+
+
+
+
 // funciones para el carrito
 
 //funcion que agrega un producto al carrito
@@ -9,9 +117,86 @@ function agregarAlCarrito(nombre, precio) {
     carrito.push({ nombre: nombre, precio: precio });
 
     // Actualizar el carrito en localStorage
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    localStorage.setItem('carrito', JSON.stringify(carrito)); // convierte el array a una cadena de texto
 
     alert("Producto añadido correctamente.");
+}
+
+
+//funcion que elimina un producto del carrito
+function eliminarDelCarrito(nombre) {
+    // Obtener el carrito desde localStorage
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Obtener el índice del producto a eliminar
+    let indice = carrito.findIndex(producto => producto.nombre === nombre); // findIndex retorna el índice del primer producto que coincida con el parametro nombre
+
+    // Eliminar el producto
+    carrito.splice(indice, 1); // modifica el array original en la pocision indice eliminando un unico elemento
+
+    // Actualizar el carrito en localStorage
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    // Mostrar el carrito
+    mostrarCarrito();
+}
+
+
+//funcion que vacia el carrito
+function vaciarCarrito() {
+    // Eliminar el carrito de localStorage
+    localStorage.removeItem('carrito');
+
+    // Mostrar el carrito
+    mostrarCarrito();
+}
+
+
+//funcion que inicia la compra
+function iniciarCompra() {
+    // Eliminar el carrito de localStorage
+    localStorage.removeItem('carrito');
+
+    // mensaje que sale si la compra se realiza correctamente
+    alert("Compra realizada correctamente, el total de la compra es: " + document.getElementById('total-general').textContent);
+
+    // Mostrar el carrito
+    mostrarCarrito();
+}
+
+
+//funcion que actualiza el total general
+function actualizarTotalGeneral() {
+    // Obtener el total general
+    let totalGeneral = document.getElementById('total-general');
+
+    // Obtener todos los subtotales
+    let subtotales = document.getElementsByClassName('subtotal');
+
+    // Se inicializa la suma de los subtotales
+    let total = 0;
+
+    // Recorrer los subtotales
+    for (let i = 0; i < subtotales.length; i++) {
+        // Sumar el subtotal al total general
+        total += Number(subtotales[i].textContent);
+    }
+
+    // Se actualiza el total general
+    totalGeneral.textContent = `$${total}`;
+}
+
+
+//función que actualiza el subtotal
+function actualizarSubtotal(cantidad, precio, index) {
+    // Obtener el subtotal
+    let subtotal = document.getElementsByClassName('subtotal')[index];
+
+    // Calcular el subtotal
+    subtotal.textContent = `${(precio * cantidad)}`;
+
+    // Actualizar el total general
+    actualizarTotalGeneral();
 }
 
 
@@ -80,186 +265,5 @@ function mostrarCarrito() {
         <button onclick="iniciarCompra()">Iniciar compra</button>
         <button onclick="vaciarCarrito()">Vaciar carrito</button>
         `;
-    }
-}
-
-
-//funcion que elimina un producto del carrito
-function eliminarDelCarrito(nombre) {
-    // Obtener el carrito desde localStorage
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-    // Obtener el índice del producto a eliminar
-    let indice = carrito.findIndex(producto => producto.nombre === nombre); // findIndex retorna el índice del primer elemento que cumpla con la comparacion
-
-    // Eliminar el producto
-    carrito.splice(indice, 1);
-
-    // Actualizar el carrito en localStorage
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-
-    // Mostrar el carrito
-    mostrarCarrito();
-}
-
-//funcion que vacia el carrito
-function vaciarCarrito() {
-    // Eliminar el carrito de localStorage
-    localStorage.removeItem('carrito');
-
-    // Mostrar el carrito
-    mostrarCarrito();
-}
-
-//funcion que inicia la compra
-function iniciarCompra() {
-    // Eliminar el carrito de localStorage
-    localStorage.removeItem('carrito');
-
-    // mensaje que sale si la compra se realiza correctamente
-    alert("Compra realizada correctamente, el total de la compra es: " + document.getElementById('total-general').textContent);
-
-    // Mostrar el carrito
-    mostrarCarrito();
-}
-
-//funcion que actualiza el total general
-function actualizarTotalGeneral() {
-    // Obtener el total general
-    let totalGeneral = document.getElementById('total-general');
-
-    // Obtener todos los subtotales
-    let subtotales = document.getElementsByClassName('subtotal');
-
-    // Se inicializa la suma de los subtotales
-    let total = 0;
-
-    // Recorrer los subtotales
-    for (let i = 0; i < subtotales.length; i++) {
-        // Sumar el subtotal al total general
-        total += Number(subtotales[i].textContent);
-    }
-
-    // Se actualiza el total general
-    totalGeneral.textContent = `$${total}`;
-}
-
-//función que actualiza el subtotal
-function actualizarSubtotal(cantidad, precio, index) {
-    // Obtener el subtotal
-    let subtotal = document.getElementsByClassName('subtotal')[index];
-
-    // Calcular el subtotal
-    subtotal.textContent = `${(precio * cantidad)}`;
-
-    // Actualizar el total general
-    actualizarTotalGeneral();
-}
-
-
-
-
-// Funciones para el registro y el inicio de sesion
-
-function borderRed(elemento) {
-    elemento.style.border = '1px solid red';
-}
-
-function validarEmail(elemento){
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(elemento);
-}
-
-
-function validarSesion() {
-
-    var formLeft = document.getElementById("form-left")
-    var correo = formLeft.elements.correo;
-    var correoValue = correo.value;
-    var error = false;
-
-    // se resetean los estilos del borde del input
-    correo.style.border = '';
-
-    // Validar el correo
-    if (correoValue === "") {
-        borderRed(correo);
-        error = true;
-    } else if (!validarEmail(correoValue)) {
-        borderRed(correo);
-        error = true;
-    }
-
-    // Si no hay errores
-    if (!error) {
-        correoValue = '';
-        alert("Inicio de sesión exitoso.");
-    } else {
-        alert("Datos invalidos.");
-    }
-}
-
-
-function validarRegistro() {
-    var formRight = document.getElementById("form-right");
-    var nombre = formRight.elements.nombre;
-    var apellido = formRight.elements.apellido;
-    var telefono = formRight.elements.telefono;
-    var correo = formRight.elements.correo;
-    var error = false;
-
-    var nombreValue = nombre.value;
-    var apellidoValue = apellido.value;
-    var telefonoValue = telefono.value;
-    var correoValue = correo.value;
-
-    // se resetean los estilos de todos los campos
-    nombre.style.border = '';
-    apellido.style.border = '';
-    telefono.style.border = '';
-    correo.style.border = '';
-
-    // Validar nombre
-    if (nombreValue === "") {
-        borderRed(nombre);
-        error = true;
-    } else if (!/^[a-zA-Z\s]+$/.test(nombreValue)) { // que solo contenga letras y espacios
-        borderRed(nombre);
-        error = true;
-    }
-
-    // Validar apellido
-    if (apellidoValue === "") {
-        borderRed(apellido);
-        error = true;
-    } else if (!/^[a-zA-Z\s]+$/.test(apellidoValue)) { // que solo contenga letras y espacios
-        borderRed(apellido);
-        error = true;
-    }
-
-    
-    // Verificar que el telefono solo contenga numeros pero que sea opcional ingresarlo
-    if (telefonoValue === "") {
-        error = false;
-    } else if (!/^\d+$/.test(telefonoValue)) { // si no contiene solo numeros
-        borderRed(telefono);
-        error = true;
-    }
-    
-
-    // Validar correo
-    if (correoValue === "") {
-        borderRed(correo);
-        error = true;
-    } else if (!validarEmail(correoValue)) {
-        borderRed(correo);
-        error = true;
-    }
-
-    // Si no hay errores
-    if (!error) {
-        alert("Registro exitoso.");
-    } else {
-        alert("Datos invalidos.");
     }
 }

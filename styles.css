@@ -69,7 +69,7 @@ header {
     display: flex;
     width: 400%;
     height: 100%;
-    animation: slide 10s infinite;
+    animation: slide 10s infinite; /* tarda 10 seg la animacion completa */
 }
 
 .slide {
