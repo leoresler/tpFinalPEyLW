@@ -170,6 +170,7 @@ function validarEmail(elemento){
     return regex.test(elemento);
 }
 
+
 function validarSesion() {
 
     var formLeft = document.getElementById("form-left")
@@ -191,6 +192,7 @@ function validarSesion() {
 
     // Si no hay errores
     if (!error) {
+        correoValue = '';
         alert("Inicio de sesión exitoso.");
     } else {
         alert("Datos invalidos.");
@@ -236,14 +238,12 @@ function validarRegistro() {
     }
 
     
-    // Verificar que el telefono solo contenga numeros
+    // Verificar que el telefono solo contenga numeros pero que sea opcional ingresarlo
     if (telefonoValue === "") {
         error = false;
-    } else {
-        if (!/^\d+$/.test(telefonoValue)) {
-            borderRed(telefono);
-            error = true;
-        }
+    } else if (!/^\d+$/.test(telefonoValue)) { // si no contiene solo numeros
+        borderRed(telefono);
+        error = true;
     }
     
 
