@@ -202,16 +202,19 @@ function validarRegistro() {
     var formRight = document.getElementById("form-right");
     var nombre = formRight.elements.nombre;
     var apellido = formRight.elements.apellido;
+    var telefono = formRight.elements.telefono;
     var correo = formRight.elements.correo;
     var error = false;
 
     var nombreValue = nombre.value;
     var apellidoValue = apellido.value;
+    var telefonoValue = telefono.value;
     var correoValue = correo.value;
 
     // se resetean los estilos de todos los campos
     nombre.style.border = '';
     apellido.style.border = '';
+    telefono.style.border = '';
     correo.style.border = '';
 
     // Validar nombre
@@ -231,6 +234,18 @@ function validarRegistro() {
         borderRed(apellido);
         error = true;
     }
+
+    
+    // Verificar que el telefono solo contenga numeros
+    if (telefonoValue === "") {
+        error = false;
+    } else {
+        if (!/^\d+$/.test(telefonoValue)) {
+            borderRed(telefono);
+            error = true;
+        }
+    }
+    
 
     // Validar correo
     if (correoValue === "") {
